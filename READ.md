@@ -82,3 +82,22 @@
 - 데이터 질의 언어 (Data Query Language):DQL
 - 데이터 제어 언어 (Data Control Language):DCL
 - 트랙잭션 제어 언어 (Transaction Control Language):TCL
+
+## DCL(Data Control Language)
+- 데이터의 접근 권한을 제어하고, 관리하는 명령어들의 집합
+1. GRANT: 권한 부여
+  - 특정 사용자나 사용자 그룹에게
+  - 특정 데이터베이스(스키마)나 특정 테이블에서
+  - 명령할 수 있는 권한 부여
+  - 예시
+    ```SQL
+    GRANT SELECT ON database_name.table_name
+    TO '사용자명'@'호스트명'
+    ```
+2. REVOKE: 권한 회수
+  - 사용자에게 부여된 권한이 더이상 필요하지 않거나
+  - 보안상의 이유로 권한 회수할 때 사용
+   ```SQL
+    REVOKE SELECT ON database_name.table_name
+    FROM '사용자명'@'호스트명'
+    ```
