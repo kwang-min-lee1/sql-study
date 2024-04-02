@@ -14,12 +14,12 @@ CREATE USER director@'%' IDENTIFIED BY '1234';
 -- WITH GRANT OPTION 다른 사용자에게도 권한부여 권한을 가짐
 GRANT ALL ON *.* TO director@'%' WITH GRANT OPTION;
 
--- 사장님: 도든 데이테베이스를 읽는 권한만
+-- 사장님: 모든 데이테베이스를 읽는 권한만
 CREATE USER ceo@'%' IDENTIFIED BY '1234';
 GRANT SELECT ON *.* TO ceo@'%';
 
 
--- 직원: shopdb는 CRUD 권한, employeed 는 읽기 권한ALTER
+-- 직원: shopdb는 CRUD 권한, employeed 는 읽기 권한
 CREATE USER staff@'%' IDENTIFIED BY '1234';
 GRANT SELECT, INSERT, UPDATE, DELETE ON shopdb.* TO staff@'%';
 GRANT SELECT ON employees.* TO staff@'%';
