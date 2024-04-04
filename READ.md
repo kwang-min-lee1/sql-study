@@ -56,31 +56,34 @@
 - 도메인(Domain): 속성이 가질 수 있는 범위, 집합(Data Type)
 - 스키마: 데이터베이스의 구조적인 설계(구조와 제약조건을 정의하는 SQL문)
 
-## 스키마와 상태
-- 스키마: DB의 구조나 설계
- - 구체적인 데이터 항목이나 값은 포함되지 않음.
- - 데이터베이스 설계과정 초기에 정의되고, 시간이 지나도 상대적으로 변경되지 않음
- - 정적인 특성, 근본적인 요소
-- 상태(Status): 특정 시점에 데이터베이스 실제로 저장된 데이터베이스의 집합
- - 시간에 따라 변할 수 있고, 지속적으로 업데이트
- - DB의 일관성과 무결성을 유지하기 위해, 스키마의 규칙과 제약조건을 따라야 함
- - 동적인 특성, 변화하는 데이터의 실체
+## 스키마와 상태  
+- 스키마: DB의 구조나 설계  
+  - 구체적인 데이터 항목이나 값은 포함되지 않음.  
+  - 데이터베이스 설계과정 초기에 정의되고, 시간이 지나도 상대적으로 변경되지 않음  
+  - 정적인 특성, 근본적인 요소  
+- 상태(Status): 특정 시점에 데이터베이스 실제로 저장된 데이터베이스의 집합  
+  - 시간에 따라 변할 수 있고, 지속적으로 업데이트  
+  - DB의 일관성과 무결성을 유지하기 위해, 스키마의 규칙과 제약조건을 따라야 함
+  - 동적인 특성, 변화하는 데이터의 실체
 
 # 3 Schema Architeture
-1. 내부 스키마: DB의 물리적 저장 구조, 최하위 수준의 추상화
- - 인덱스, 압축, 암호화 등 DBA(데이터베이스 관리자)가 다루는 영역
-2. 개념 스키마: DB의 전체적인 논리적 구조, 중간 수준의 추상화
- - 데이터의 관계, 데이터의 제약조건 등, DB 설계자, 분석가
-3. 외부 스키마: 사용자 관점에서 보는 DB의 일부분, 최상위수준의 추상화
- - 애플리케이션이 접근하는 View, 최종 사용자, 응용프로그램 개발자가 다루는 영역
+1. 내부 스키마: DB의 물리적 저장 구조, 최하위 수준의 추상화  
+  - 인덱스, 압축, 암호화 등 DBA(데이터베이스 관리자)가 다루는 영역
+2. 개념 스키마: DB의 전체적인 논리적 구조, 중간 수준의 추상화  
+  - 데이터의 관계, 데이터의 제약조건 등, DB 설계자, 분석가  
+3. 외부 스키마: 사용자 관점에서 보는 DB의 일부분, 최상위수준의 추상화  
+  - 애플리케이션이 접근하는 View, 최종 사용자, 응용프로그램 개발자가 다루는 영역
 
 # SQL(Struectured Query Language)
 - 관계형 데이터베이스(RDBMS)에서 데이터를 관리하기 위해 사용하는 표준화된 언어
 
 - 데이터 정의 언어 (Data Definition Language):DDL
+  - CREATE, ALTER, DROP, TRUNCATE, RENAME
 - 데이터 조작 언어 (Data Manipulation Language):DML
+  - INSERT, UPDATE, DELETE
 - 데이터 질의 언어 (Data Query Language):DQL
 - 데이터 제어 언어 (Data Control Language):DCL
+  - GRANT, REVOKE
 - 트랙잭션 제어 언어 (Transaction Control Language):TCL
 
 ## DCL(Data Control Language)
@@ -268,3 +271,19 @@ CREATE TABLE 테이블명 (
     ALTER TABLE 테이블명
     RENAME TO 새로운테이블명;
     ```        
+## CONSTRAINT 제약조건명 ( 제약조건 이름 명시하기 )
+- 제약조건은 생성시 이름을 생략하고 만들 수 있음
+- 생략하고 만들 경우, 자동으로 제약조건의 이름이 부여 됨
+- 생성 시 'CONSTRAINT 제약조건명' 이  부여되면, 제약조건 이름을 명시할 수 있음
+- 제약조건의 이름을 확인하기 위해서는 DB객체나 DDL을 확인하면 됨.
+```sql
+-- 1. information_schema 오브젝트를 통해 확인
+   -- CONTRAINT_NAME 필드 : 제약조건의 이름
+   SELECT * FROM information_schema.table_constraints
+   WHERE table_name = '테이블명';  -- 테이블명
+
+-- 2. DDL을 통해 확인
+-- SHOW CREATE TABLE 스키마명.테이블명;
+-- 워크벤치의 경우 open value in viewer
+   SHOW CREATE TABLE employees;
+```      
