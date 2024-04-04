@@ -66,10 +66,10 @@ CHECK ( age > 19);
 ALTER TABLE employees ADD COLUMN salary INT COMMENT '직원의 급여와 관련된 속성';
 
 -- 제약조건 삭제하기
--- 1. 외래키 삭제하기
+-- 1. 외래키 삭제하기 (제약조건의 이름으로 삭제)
 ALTER TABLE employees DROP FOREIGN KEY fk_department_id;
 
--- 2. 체크 명시 제약조건 삭제하기
+-- 2. 체크 명시 제약조건 삭제하기 (제약조건의 이름으로 삭제)
 ALTER TABLE employees DROP CONSTRAINT chk_age;
 
 -- ALTER COLUMN 으로 열 속성 변경하기
@@ -79,9 +79,16 @@ ALTER TABLE employees ALTER COLUMN age SET DEFAULT 20;
 ALTER TABLE employees ALTER COLUMN age DROP DEFAULT;
 
 
+-- 제약조건의 이름 확인하기
+-- 1. information_schema 오브젝트를 통해 확인
+-- CONTRAINT_NAME 필드: 제약조건의 이름
+SELECT * FROM information_schema.table_constraints
+WHERE table_name = '테이블명';  -- 테이블명
 
-
-
+-- 2. DDL을 통해 확인
+-- SHOW CREATE TABLE 스키마명.테이블명;
+-- 워크벤치의 경우 open value in viewer
+SHOW CREATE TABLE employees;
 
 
 
