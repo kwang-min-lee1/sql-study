@@ -41,7 +41,7 @@ SELECT * FROM Members;
 -- 문제 3: 'BorrowRecords' 테이블에 대출 기록 추가하기
 SELECT * FROM BorrowRecords;
 INSERT INTO BorrowRecords (MemberID,BookID,BorrowDate,ReturnDate)
-VALUES (1,1,"2023-03-15","2023-03-15");
+VALUES (1,1,"2023-03-15",'2023-04-14');
 SELECT * FROM BorrowRecords;
 
 -- 문제 4: 'Books' 테이블에서 제목이 "Learning SQL"인 도서의 장르를 "Technical"로 변경하기
