@@ -2,13 +2,14 @@
 -- 그룹화 연습문제 (scott 스키마)
 USE scott;
 
+SELECT * FROM emp;
 -- 문제 1: EMP 테이블에서 전체 직원 수를 계산하세요.
 SELECT count(*) 
 FROM EMP; 
 
 SELECT * FROM EMP;
 -- 문제 2: EMP 테이블에서 각 부서(DEPTNO)별 직원 수를 계산하세요.
-SELECT count(DEPTNO)
+SELECT DEPTNO, count(*)
 FROM EMP
 GROUP BY DEPTNO;
 

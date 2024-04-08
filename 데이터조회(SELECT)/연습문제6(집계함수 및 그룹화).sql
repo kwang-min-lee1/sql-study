@@ -12,7 +12,7 @@ SELECT Continent, sum(Population)
 FROM Country
 GROUP BY Continent
 ORDER BY sum(Population) DESC;
-SELECT * FROM CITY;
+-- SELECT * FROM CITY;
 
 -- 문제 3: City 테이블에서 각 국가 코드(CountryCode)별로 가장 인구가 많은 도시의 인구수를 조회하세요. 상위 5개 결과만 보여주세요.
 SELECT CountryCode, max(Population)
@@ -53,7 +53,7 @@ SELECT Continent, avg(Population) as "대륙별 평균인구수"
 FROM Country
 GROUP BY Continent
 HAVING avg(Population) >= 50000000;
-desc Country;
+-- desc Country;
 
 
 -- 문제 9: CountryLanguage 테이블에서 언어별로 사용하는 국가 수가 5개 이상인 언어와 해당 국가 수를 조회하세요.
@@ -61,7 +61,7 @@ SELECT Language, count(*)
 FROM CountryLanguage
 GROUP BY Language
 HAVING count(*) >= 5;
-desc CountryLanguage;
+-- desc CountryLanguage;
 
 -- 문제 10: Country 테이블에서 각 대륙별로 총 GNP가 100만 이상인 대륙과 해당 총 GNP를 조회하세요.
 SELECT Continent, sum(GNP)
