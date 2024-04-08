@@ -54,3 +54,4 @@ SELECT  DISTINCT DEPTNO FROM EMP ORDER BY DEPTNO;
 
 -- 핵심적인 데이터만 보고 싶을 때, 데이터 정제
 -- 종류만 확인하고 싶을 때 사용
+
