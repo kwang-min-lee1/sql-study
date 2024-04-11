@@ -573,3 +573,32 @@ WHERE 조건식;
       - 쿼리의 결과를 유연하게 동적으로 표현하고 싶을 때 사용  
     3. FROM절: 인라인 뷰 (Inline View)
       - 서브쿼리가 임시 테이블처럼 동작하게 하여 메인쿼리에 사용
+
+### 내장함수
+  - MySQL에서 사용자 정의 변수 사용하기
+    - 사용자 정의 변수는 '@' 기호로 시작
+  - 변수 설정
+    ```sql
+    SET @변수이름 = 값;     -- 변수 선언
+    SELECT @변수이름        -- 변수 사용
+    ``` 
+  1. 제어흐름함수 (IF, CASE, IFNULL, NULLIF...)
+  2. 문자열함수 (CONCAT, SUBSTRING, LENGTH...)
+  3. 수학함수 (ABS, CEIL, ROUND, FLOOR, SQRT, RAND...)
+  4. 날짜시간 함수 (NOW, CURSATE, CURTIME, DATE, TIME)
+  5. 시스템 정보 함수(USER, DATABASE...)
+
+## 뷰 view
+  - 하나 이상의 테이블에서 가져온 가상의 테이블
+  - 일반 사용자 입장에서는 테이블과 동등하게 사용하는 객체
+
+  - 뷰의 특성
+    - 기본적으로 읽기 전용의 객체
+    - SQL 쿼리문을 저장하는 형태로, DB내에 정의
+    - 복잡한 쿼리를 간단하게 재사용 (단순화)
+    - 필요한 데이터를 선별적으로 노출 (보완)
+
+  - 뷰의 생성
+    ```sql
+    CREATE VIEW 뷰이름 AS
+    SELECT 컬럼 .. FROM 테이블명 WHERE 조건 ...
