@@ -96,7 +96,7 @@ SELECT * FROM view_sum;
 -- 시스템에 저장된 뷰 정보를 통해 확인했을 때, IS_UPDATABLE이 NO
 -- => 데이터 수정 불가
 SELECT * FROM information_schema.views
-	WHERE table_schema = 'sqldb'
+	WHERE table_schema = 'sqldb';
 -- 집계함수를 사용하는 뷰, JOIN을 사용하는 뷰, UNION ALL(합집합)을 사용하는 뷰
 -- DISTINCT 사용, GROUP BY 사용 => 데이터 수정이나 삭제가 불가
 
@@ -136,7 +136,7 @@ ALTER VIEW view_height_upper177 AS
 
 -- CHECK OPTION이 활성화
 SELECT * FROM information_schema.views
-	WHERE table_schema = 'sqldb'
+	WHERE table_schema = 'sqldb';
     
 -- 조인을 한 뷰는 업데이트 불가
 SHOW CREATE VIEW view_userbuytbl;
