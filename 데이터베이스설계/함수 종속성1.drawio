@@ -1,0 +1,52 @@
+<mxfile host="app.diagrams.net" modified="2024-04-15T07:25:36.795Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36" etag="JsUSmjV3AVTQPmOdXWoH" version="24.2.3" type="device">
+  <diagram name="페이지-1" id="r7ChSR1d14mmvCcWnUht">
+    <mxGraphModel dx="1310" dy="3034" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="MftwCI5mRZUNiBuMBCdf-15" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-720" y="-1820" width="120" height="148" as="geometry" />
+        </mxCell>
+        <mxCell id="MftwCI5mRZUNiBuMBCdf-1" value="&lt;div&gt;다음은 부동산 정보를 저장하는 데이터베이스이다.&amp;nbsp;&lt;/div&gt;&lt;div&gt;아래와 같은 하나의 릴레이션에 정보가 저장되어있고,&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;```&lt;/div&gt;&lt;div&gt;부동산(필지번호, 주소, 공시지가, 소유자이름, 주민등록번호, 전화번호)&lt;/div&gt;&lt;div&gt;```&lt;/div&gt;&lt;div style=&quot;&quot;&gt;다음과 같은 함수 종속성을 가진다.&amp;nbsp;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;```&lt;/div&gt;&lt;div&gt;함수 종속성&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;white-space-collapse: collapse;&quot;&gt;&lt;span style=&quot;white-space-collapse: preserve;&quot;&gt;&#x9;&lt;/span&gt;- 필지번호 -&amp;gt; 주소, 공시지가 : 땅에 대한 고유 번호이며 필지에 대하여 주소와 공시가격이 주어진다.&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;white-space-collapse: collapse;&quot;&gt;&lt;span style=&quot;white-space-collapse: preserve;&quot;&gt;&#x9;&lt;/span&gt;- 소유자이름 -&amp;gt; 전화번호 : 소유자는 하나의 전화번호를 갖는다&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;white-space-collapse: collapse;&quot;&gt;&lt;span style=&quot;white-space-collapse: preserve;&quot;&gt;&#x9;&lt;/span&gt;- 주민등록번호 -&amp;gt; 소유자이름 : 사람마다 고유한 주민등록번호가 있다.&lt;/span&gt;&lt;/div&gt;&lt;div&gt;```&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;1. 함수 종속성 다이어그램을 그리시오.&lt;/div&gt;&lt;div&gt;2. 테이블을 분해하시오.&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=16;rotation=0;" vertex="1" parent="1">
+          <mxGeometry x="-780" y="-2280" width="757" height="338" as="geometry" />
+        </mxCell>
+        <mxCell id="MftwCI5mRZUNiBuMBCdf-3" value="" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;startSize=8;endSize=8;" edge="1" parent="1" source="MftwCI5mRZUNiBuMBCdf-4" target="MftwCI5mRZUNiBuMBCdf-14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="MftwCI5mRZUNiBuMBCdf-4" value="소유자이름" style="whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="-555" y="-1728" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="MftwCI5mRZUNiBuMBCdf-5" value="" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;startSize=8;endSize=8;" edge="1" parent="1" source="MftwCI5mRZUNiBuMBCdf-6" target="MftwCI5mRZUNiBuMBCdf-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="MftwCI5mRZUNiBuMBCdf-6" value="주민등록번호" style="whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="-710" y="-1728" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="MftwCI5mRZUNiBuMBCdf-7" value="" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;startSize=8;endSize=8;" edge="1" parent="1" source="MftwCI5mRZUNiBuMBCdf-11" target="MftwCI5mRZUNiBuMBCdf-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="MftwCI5mRZUNiBuMBCdf-8" value="" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;startSize=8;endSize=8;" edge="1" parent="1" source="MftwCI5mRZUNiBuMBCdf-11" target="MftwCI5mRZUNiBuMBCdf-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="MftwCI5mRZUNiBuMBCdf-9" value="" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;startSize=8;endSize=8;" edge="1" parent="1" source="MftwCI5mRZUNiBuMBCdf-11" target="MftwCI5mRZUNiBuMBCdf-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="MftwCI5mRZUNiBuMBCdf-10" value="" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;startSize=8;endSize=8;" edge="1" parent="1" source="MftwCI5mRZUNiBuMBCdf-11" target="MftwCI5mRZUNiBuMBCdf-13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="MftwCI5mRZUNiBuMBCdf-11" value="필지번호" style="whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="-710" y="-1798" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="MftwCI5mRZUNiBuMBCdf-12" value="주소" style="whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="-500" y="-1860" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="MftwCI5mRZUNiBuMBCdf-13" value="공시지가" style="whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="-500" y="-1798" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="MftwCI5mRZUNiBuMBCdf-14" value="전화번호" style="whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="-400" y="-1728" width="100" height="40" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
