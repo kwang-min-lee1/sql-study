@@ -5,7 +5,7 @@ USE tcl;
 SELECT @@transaction_isolation;
 
 
-/* 1. READ UNCOMMITTED */
+/* 1. READ UNCOMMITTED, 가장 낮은 수준 */
 -- 고립수준 변경하기
 SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED;
 START TRANSACTION;
