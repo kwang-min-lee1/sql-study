@@ -43,7 +43,8 @@ SELECT * FROM Voyage;
 INSERT INTO VoyageDetail VALUES (101, '2024-04-15','부산'), (102,'2024-04-16','인천');
 SELECT * FROM VoyageDetail;  
 
--- 전체 합쳐서 확인
-SELECT * FROM Voyage v 
+-- 테이블 조인하여 보기
+SELECT v.voyageID, v.shipname, s.shiptype, v.cargo, vd.date, vd.port
+FROM Voyage v 
 JOIN VoyageDetail vd ON v.voyageID = vd.voyageID
 JOIN Ship s ON s.shipname = v.shipname;
