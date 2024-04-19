@@ -1053,8 +1053,8 @@ WHERE 조건식;
       DELIMITER $$     -- 프로시저 내의 구분자(;)를 변경
 
       CREATE PROCEDURE 프로시저 이름 (
-          [IN/OUT] 매개변수1 타입,         -- 입력 또는 출력 매개변수 
-         [IN/OUT] 매개변수2 타입...
+        [IN/OUT] 매개변수1 타입,         -- 입력 또는 출력 매개변수 
+        [IN/OUT] 매개변수2 타입...
        ) 
       BEGIN     -- 프로시저 시작
        -- SQL 본문...(;)
@@ -1086,3 +1086,37 @@ WHERE 조건식;
   DELIMITER ;
   ```    
 
+### 커서
+  - 데이터베이스의 쿼리 결과를 순회하고 조작하기 위한 개체
+  - 커서 사용방법
+    1. 커서 선언: DECLARE CURSOR
+    2. 반복 조건 선언: DECLARE CONTINUE HANDLER
+    3. 커서 열기: OPEN
+        - LOOP (반복 구간 지정) 
+    4. 커서에서 데이터를 가져오기: FETCH
+    5. 데이터 처리: 가져온 데이터로 원하는 작업 수행
+        - END LOOP (반복 종료)
+    6. 커서 닫기: CLOSE   
+
+### 트리거
+  - 테이블과 관련하여 DML의 이벤트가 발생될 때 작동하는 DB 개체
+  - 트리거의 종류
+    - AFTER 트리거
+      - DML(INSERT,UPDATE,DELETE) 작입이 작동했을 때, 작동하는 트리거 
+    - BEFORE 트리거
+      - DML 이벤트가 발생하기 전에 작동하는 트리거
+
+  - 문법
+  ``` sql
+  CREATE TRIGGER 트리거이름
+    BEFORE|AFTER INSERT|UPDATE|DELETE  -- 시점과 이벤트
+    ON 테이블명  -- 이벤트가 발생할 테이블
+    FOR EACH ROW
+  BEGIN
+    트리거 본문
+  END
+  ```
+  - 주의점
+    - 무한 루프를 방지해야 함(트리거가 테이블A에 작동하고, 작동한 트리거에서 테이블A를 조작할 경우 등)  
+    - 트리거는 너무 복잡하게 작성하면 안됨
+    - 다른 작업 티어에서 트리거를 인지하기 어려울 수 있음.             
