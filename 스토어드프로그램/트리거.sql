@@ -23,6 +23,7 @@ CREATE TABLE `backup_usertbl` (
 -- 변경과 삭제가 발생할 때 작동하는 트리거를 usertbl에 부착하자
 
 -- 업데이트 트리거 생성
+DROP TRIGGER if exists updateTrg;
 DELIMITER $$
 CREATE TRIGGER updateTrg
 	AFTER UPDATE		-- 업데이트 작업이 일어난 이후
@@ -32,14 +33,14 @@ BEGIN
 	-- 백업 테이블에 수정 이전 정보를 추가하라.
     INSERT INTO `store`.`backup_usertbl`
 VALUES
-	(OLD.userID, OLD.name, OLD.birthYear, OLD.addr, 
-	OLD.mobile1, OLD.mobile2, OLD.height, OLD.mDate,
+	(OLD.userID, OLD.name, OLD.birthYear, OLD.addr,   -- OLD 테이블:수정, 삭제 가 수행되기 전의 데이터가,
+	OLD.mobile1, OLD.mobile2, OLD.height, OLD.mDate,  -- 잠깐 저장되어 있는 임시 테이블
 	'수정', curdate(), current_user() );
 END$$
 DELIMITER ;
 
 -- UPDATE문이 수정된 후 트리거 작동
-UPDATE usertbl SET addr = '제주' WHERE userId ='EJW';
+UPDATE usertbl SET addr = '울산' WHERE userId ='KKH';
 UPDATE usertbl SET mobile2 = '2222222' WHERE userId ='BBK';
 
 -- 업데이트문이 수행될 때마다 트리거는 자동으로 각 줄에 수행이 됨
