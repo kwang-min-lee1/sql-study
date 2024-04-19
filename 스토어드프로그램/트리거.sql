@@ -2,8 +2,9 @@
 
 -- usertbl 테이블에 변경이 일어나면
 -- backup 테이블에 자동으로 작동하는 트리거를 생성
-SELECT * FROM usertbl;
+USE store;
 
+SELECT * FROM usertbl;
 
 CREATE TABLE `backup_usertbl` (
   `userID` char(8) NOT NULL,
@@ -14,15 +15,18 @@ CREATE TABLE `backup_usertbl` (
   `mobile2` char(8) DEFAULT NULL,
   `height` smallint DEFAULT NULL,
   `mDate` date DEFAULT NULL,
-  modtype CHAR(2),   -- 데이터 변경 타입
+  modtype CHAR(2),   -- 데이터 변경 타입, 수정 또는 삭제
   modDate Date,      -- 데이터 변경 날짜
-  modUser VARCHAR(255)  -- 데이터 변경 사용자
+  modUser VARCHAR(255)  -- 데이터 변경한 사용자
 );
 
+-- 변경과 삭제가 발생할 때 작동하는 트리거를 usertbl에 부착하자
+
+-- 업데이트 트리거 생성
 DELIMITER $$
 CREATE TRIGGER updateTrg
 	AFTER UPDATE		-- 업데이트 작업이 일어난 이후
-    ON userTbl			-- 해당 테이블에서 데이터가 변경되면
+    ON userTbl			-- 해당 테이블에서 데이터가 변경되면 (트리거를 부착할 테이블)
     FOR EACH ROW	    -- 각 행마다 적용
 BEGIN
 	-- 백업 테이블에 수정 이전 정보를 추가하라.
@@ -40,7 +44,7 @@ UPDATE usertbl SET mobile2 = '2222222' WHERE userId ='BBK';
 
 -- 업데이트문이 수행될 때마다 트리거는 자동으로 각 줄에 수행이 됨
 SELECT * FROM usertbl;
-SELECT * FROM backup_usertblbuytblusertbl;
+SELECT * FROM backup_usertbl;
 
 
 -- 삭제 트리거 생성
