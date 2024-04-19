@@ -57,7 +57,7 @@ CREATE TRIGGER deleteTrg
     FOR EACH ROW	    -- 각 행마다 적용
 BEGIN
 	-- 백업 테이블에 수정 이전 정보를 추가하라.
-    INSERT INTO `store`.`backup_usertbl`
+    INSERT INTO `store`.`backup_usertbl`    -- 테이블 명에 빽틱 사용 (필수는 아님)
 VALUES
 	(OLD.userID, OLD.name, OLD.birthYear, OLD.addr, 
 	OLD.mobile1, OLD.mobile2, OLD.height, OLD.mDate,
